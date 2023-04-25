@@ -1,0 +1,93 @@
+<html>
+<head>
+    <title>Milletvekili Sayısı Hesaplama</title>
+</head>
+<body>
+    <h1>Milletvekili Sayısı Hesaplama</h1>
+    <p>D'Hondt Sistemi'ne göre milletvekili sayısını hesaplamak için aşağıdaki formu doldurun.</p>
+    <form id="form">
+        <table id="partiler">
+            <tr>
+                <th>Parti Adı</th>
+                <th>Oy Oranı (%)</th>
+            </tr>
+            <tr>
+                <td><input type="text" name="parti1" id="parti1"></td>
+                <td><input type="number" name="oy1" id="oy1"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="parti2" id="parti2"></td>
+                <td><input type="number" name="oy2" id="oy2"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="parti3" id="parti3"></td>
+                <td><input type="number" name="oy3" id="oy3"></td>
+            </tr>
+            <!-- Daha fazla parti eklemek için bu kısmı kopyalayın -->
+
+        </table>
+        <button type="button" onclick="hesapla()">Hesapla</button>
+    </form>
+    <p>Çıkacak vekil sayısını girin:</p>
+    <input type="number" id="vekilSayisi"> 
+    <h2>Sonuç</h2>
+    <table id="sonuc">
+        <!-- Buraya JavaScript ile sonucu yazdıracağız -->
+    </table>
+
+    <!-- JavaScript kodu -->
+    <script>
+
+        // Form elemanlarını al
+        var form = document.getElementById("form");
+        var partiler = document.getElementById("partiler");
+        var sonuc = document.getElementById("sonuc");
+
+        // Hesaplama fonksiyonu
+        function hesapla() {
+
+            // Partilerin adlarını ve oy oranlarını bir diziye kaydet
+            var partiAdlari = [];
+            var vekilSayisi = parseInt(document.getElementById("vekilSayisi").value);
+            var oyOranlari = [];
+            for (var i = 0; i < partiler.rows.length - 1; i++) {
+                var partiAdi = partiler.rows[i+1].cells[0].children[0].value;
+                var oyOrani = partiler.rows[i+1].cells[1].children[0].value;
+                if (partiAdi && oyOrani) { // Boş değilse
+                    partiAdlari.push(partiAdi);
+                    oyOranlari.push(oyOrani);
+                }
+            }
+
+            // Milletvekili sayısını hesaplamak için D'Hondt Sistemi'ni uygula
+            var milletvekiliSayisi = [];
+            for (var i = 0; i < partiAdlari.length; i++) {
+                milletvekiliSayisi[i] = 0; // Başlangıçta her partiye 0 milletvekili ver
+            }
+            for (var j = 0; j < vekilSayisi; j++) { // 600 milletvekili dağıt
+                var max = 0; // En yüksek oy oranını tutacak değişken
+                var index = 0; // En yüksek oy oranına sahip partinin indeksini tutacak değişken
+                for (var i = 0; i < partiAdlari.length; i++) {
+                    var oy = oyOranlari[i] / (milletvekiliSayisi[i] + 1); // D'Hondt Sistemi'ne göre oy oranını hesapla
+                    if (oy > max) { // Eğer en yüksek oy oranından büyükse
+                        max = oy; // En yüksek oy oranını güncelle
+                        index = i; // En yüksek oy oranına sahip partinin indeksini güncelle
+                    }
+                }
+                milletvekiliSayisi[index]++; // En yüksek oy oranına sahip partiye bir milletvekili ekle
+            }
+
+            // Sonucu tabloya yazdır
+            sonuc.innerHTML = ""; // Tabloyu temizle
+            sonuc.insertRow(0).innerHTML = "<th>Parti Adı</th><th>Oy Oranı (%)</th><th>Milletvekili Sayısı</th>"; // Tablonun başlığını ekle
+            for (var i = 0; i < partiAdlari.length; i++) {
+                var row = sonuc.insertRow(i+1); // Yeni bir satır ekle
+                row.insertCell(0).innerHTML = partiAdlari[i]; // Parti adını yaz
+                row.insertCell(1).innerHTML = oyOranlari[i]; // Oy oranını yaz
+                row.insertCell(2).innerHTML = milletvekiliSayisi[i]; // Milletvekili sayısını yaz
+            }
+        }
+
+    </script>
+</body>
+</html>
