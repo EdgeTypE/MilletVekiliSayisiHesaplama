@@ -1,0 +1,85 @@
+<form>
+  <label for="iller">İl seçiniz:</label>
+  <select id="iller">
+    <option value="" selected disabled hidden>Seçiniz</option>
+    <option value="10">Manisa</option>
+    <option value="600">İstanbul</option>
+    <option value="8">Ankara</option><br><br>
+  <!-- Diğer iller için de aynı şekilde devam edin -->
+  </select>
+  <br><label for="Milletittifaki">Millet İttifakı:</label><br>
+  <label for="parti1"><img src="chp.jpeg" alt="ikon" width="32" height="32" align="middle"> Cumhuriyet Halk Partisi:</label>
+  <input type="number" id="parti1" name="parti1" placeholder="Değer giriniz"><br>
+  <label for="parti2">İYİ Parti:</label>
+  <input type="number" id="parti2" name="parti2"><br>
+  <label for="parti2">Zafer:</label>
+  <input type="number" id="parti3" name="parti3"><br>
+  <!-- Diğer partiler için de aynı şekilde devam edin -->
+  <input type="submit" value="Hesapla" id="hesaplabutonu">
+</form>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<script>
+  var iller = document.getElementById ("iller");
+  iller.onchange = function () {
+    // Seçilen ilin milletvekili sayısını al
+    var mv = iller.value;
+    // Milletvekili sayısını mvsayisi değişkenine ata
+    mvsayisi = mv;
+  };
+  function hesapla () {
+    // Belirli bir seçiciye uyan tüm giriş alanlarını seç
+    var partiler = document.querySelectorAll ("input[type=number]");
+    // Giriş alanları üzerinde döngü ile gezin
+    for (var i = 0; i < partiler.length; i++) {
+      // Giriş alanının değerini sayıya dönüştür
+      var oy = parseFloat (partiler[i].value);
+      // Seçim barajını kontrol et
+      if (oy < 7) {
+        // Parti barajı geçemediyse oy oranını 0 yap
+        partiler[i].value = 0;
+        oy = 0;
+      }
+    }
+    // Milletvekili sayısını belirle
+    //var mvsayisi = 10; // Örnek olarak 10 alındı
+    
+    // Partilere ayrılan milletvekili sayısını tutacak bir liste oluştur
+    var mvlistesi = [];
+    // Partiler listesi üzerinde döngü ile gezin
+    for (var i = 0; i < partiler.length; i++) {
+      // Her partiye başlangıçta 0 milletvekili ver
+      mvlistesi.push (0);
+    }
+    // Milletvekili sayısı kadar döngü yap
+    for (var i = 0; i < mvsayisi; i++) {
+      // En yüksek N değerini ve hangi partiye ait olduğunu tutacak değişkenler oluştur
+      var enyuksekN = -1;
+      var enyuksekindex = -1;
+      // Partiler listesi üzerinde döngü ile gezin
+      for (var j = 0; j < partiler.length; j++) {
+        // Partinin toplam oy sayısını al
+        var V = parseFloat (partiler[j].value);
+        // Partinin ayrılan milletvekili sayısını al
+        var s = mvlistesi[j];
+        // Partinin N değerini hesapla
+        var N = V / (s+1);
+        // Eğer N değeri en yüksek N değerinden büyükse
+        if (N > enyuksekN) {
+          // En yüksek N değerini ve indexini güncelle
+          enyuksekN = N;
+          enyuksekindex = j;
+        }
+      }
+      // En yüksek N değerine sahip olan partiye bir milletvekili ver
+      mvlistesi[enyuksekindex]++;
+    }
+    // Milletvekili listesini ekranda göster
+    for (var i = 0; i < partiler.length; i++) {
+      // Partinin id'sini ve milletvekili sayısını yaz
+      document.write (partiler[i].id + ": " + mvlistesi[i] + "<br>");
+      //alert(partiler[i].id + ": " + mvlistesi[i]);
+    }
+  }
+</script>
