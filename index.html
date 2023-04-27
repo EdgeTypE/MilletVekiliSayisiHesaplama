@@ -3,13 +3,16 @@
   <select id="iller">
     <option value="10">Manisa</option>
     <option value="600">İstanbul</option>
-    <option value="8">Ankara</option>
+    <option value="8">Ankara</option><br><br>
   <!-- Diğer iller için de aynı şekilde devam edin -->
   </select>
+  <br><label for="parti2">Ata İttifakı:</label><br>
   <label for="parti1">Adalet Partisi:</label>
   <input type="number" id="parti1" name="parti1"><br>
   <label for="parti2">Zafer Partisi:</label>
   <input type="number" id="parti2" name="parti2"><br>
+  <label for="parti2">CEHAPE:</label>
+  <input type="number" id="parti3" name="parti3"><br>
   <!-- Diğer partiler için de aynı şekilde devam edin -->
   <input type="submit" value="Hesapla" id="hesaplabutonu">
 </form>
@@ -28,25 +31,19 @@
   function hesapla () {
     // Belirli bir seçiciye uyan tüm giriş alanlarını seç
     var partiler = document.querySelectorAll ("input[type=number]");
-    // Barajı geçemeyen partileri tutacak bir liste oluştur
-    var barajsiz = [];
     // Giriş alanları üzerinde döngü ile gezin
     for (var i = 0; i < partiler.length; i++) {
       // Giriş alanının değerini sayıya dönüştür
       var oy = parseFloat (partiler[i].value);
       // Seçim barajını kontrol et
       if (oy < 7) {
-        // Parti barajı geçemediyse listeye ekle
-        barajsiz.push (partiler[i]);
+        // Parti barajı geçemediyse oy oranını 0 yap
+        partiler[i].value = 0;
+        oy = 0;
       }
     }
-    // Barajsız listesi üzerinde döngü ile gezin
-    for (var i = 0; i < barajsiz.length; i++) {
-      // Listedeki partiyi formdaki giriş alanlarından kaldır
-      partiler.splice (partiler.indexOf (barajsiz[i]), 1);
-    }
     // Milletvekili sayısını belirle
-    //var mvsayisi = 10; // Örnek olarak 10 alındı
+    var mvsayisi = 10; // Örnek olarak 10 alındı
     // Partilere ayrılan milletvekili sayısını tutacak bir liste oluştur
     var mvlistesi = [];
     // Partiler listesi üzerinde döngü ile gezin
