@@ -1,0 +1,41 @@
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+select {
+  width: 10%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f2f2f2;
+}
+
+#hesaplabutonu {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="number"] {
+  width: 10%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f2f2f2;
+}
+
+label[for="parti1"] {
+  font-weight: bold;
+  color: blue;
+}
