@@ -1,11 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <div class="row">
       <div class="col text-end">
         <aside>Bu uygulama D'Hondt sistemine göre dilediğiniz şehirdeki milletvekili sayısını hesaplar. Uygulamanın geliştirme süreci halen devam etmektedir. Verilere kesin gözüyle bakmayınız.</aside>
       </div>
-    </div>
-  </div>
 </nav>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
@@ -27,13 +23,13 @@
 <div class="container">
   <div class="row">
     <div class="col text-end">
-      <div class="grid"></div>
-      <label for="Milletittifaki">Millet İttifakı:</label><br>
-      <div id="cevaplar"></div>
+      <div class="grid">
+        <div id="cevaplar"></div>
+      </div>
+
     </div>
   </div>
 </div>
-
 <div class="container">
   <form>
     <div class="form-group">
@@ -104,6 +100,7 @@
       mvlistesi.push (0);
     }
     // Milletvekili sayısı kadar döngü yap
+
     for (var i = 0; i < mvsayisi; i++) {
       // En yüksek N değerini ve hangi partiye ait olduğunu tutacak değişkenler oluştur
       var enyuksekN = -1;
@@ -126,16 +123,17 @@
       // En yüksek N değerine sahip olan partiye bir milletvekili ver
       mvlistesi[enyuksekindex]++;
     }
-    
+  
     // Milletvekili listesini ekranda göster
-    for (var i = 0; i < partiler.length; i++) {
+    for (var i = 0; i < partiler.length; i++) { 
+      document.write (partiler[i].id + ": " + mvlistesi[i] + "<br>");
       // Partinin id'sini ve milletvekili sayısını yaz
-      //document.write (partiler[i].id + ": " + mvlistesi[i] + "<br>");
       //alert(partiler[i].id + ": " + mvlistesi[i]);
       //document.getElementById("container").innerHTML = "Parti ID'si: " + partiler[i].id + ", Milletvekili Sayısı: " + mvlistesi[i] + "<br>";
-      var div = document.createElement("div");
-      div.innerHTML = partiler[i].id + ": " + mvlistesi[i];
-      document.getElementById("cevaplar").appendChild(div);
+      //var div = document.createElement("div");
+      //div.innerHTML = partiler[i].id + ": " + mvlistesi[i];
+      //document.getElementById("cevaplar").appendChild(div);
     }
   }
+  
 </script>
