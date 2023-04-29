@@ -23,9 +23,35 @@ label {
 
 label[for="Milletittifaki"] {
   font-weight: bold;
-  color: blue;
+  color: rgb(255, 0, 0);
   margin-bottom: 5px;
 }
+
+label[for="Emekittifaki"] {
+  font-weight: bold;
+  color: rgb(110, 0, 114);
+  margin-bottom: 5px;
+}
+
+label[for="Cumhurittifaki"] {
+  font-weight: bold;
+  color: rgb(255, 145, 0);
+  margin-bottom: 5px;
+}
+
+label[for="Ataittifaki"] {
+  font-weight: bold;
+  color: rgb(0, 60, 190);
+  margin-bottom: 5px;
+}
+
+label[for="ittifaksiz"] {
+  font-weight: bold;
+  color: rgb(0, 190, 149);
+  margin-bottom: 5px;
+}
+
+
 
 img {
   border-radius: 50%; /* yuvarlak köşeler için yüzde değeri kullanın */
@@ -109,6 +135,7 @@ div.content {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, auto);
   gap: 5px;
+  text-align: center;
 }
 
 .ittifakcumhur {
@@ -116,6 +143,7 @@ div.content {
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(2, auto);
   gap: 5px;
+  text-align: center;
 }
 
 .grid-container {
@@ -137,6 +165,7 @@ div.content {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, auto);
   gap: 5px;
+  text-align: center;
 }
 
 .partiata {
@@ -150,7 +179,7 @@ div.content {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(1, auto);
-  gap: 10px;
+  gap: 5px;
 
 }
 
