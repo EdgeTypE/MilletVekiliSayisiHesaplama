@@ -35,7 +35,7 @@
       <label for="iller">İl seçiniz:</label>
       <select id="iller" required class="form-control">
         <option value="" selected disabled hidden>Seçiniz</option>
-        <option value="10">Manisa</option>
+        <option value="600">Türkiye Geneli</option>
         <option value="600">İstanbul</option>
         <option value="8">Ankara</option><br><br>
         <!-- Diğer iller için de aynı şekilde devam edin -->
@@ -158,7 +158,7 @@
       }
     }
     // Milletvekili sayısını belirle
-    var mvsayisi = 10; // Örnek olarak 10 alındı
+    //var mvsayisi = 10; // Örnek olarak 10 alındı
     // Partilere ayrılan milletvekili sayısını tutacak bir liste oluştur
     var mvlistesi = [];
     // Partiler listesi üzerinde döngü ile gezin
@@ -190,13 +190,15 @@
       // En yüksek N değerine sahip olan partiye bir milletvekili ver
       mvlistesi[enyuksekindex]++;
     }
+
     var sonuc = "";
     for (var i = 0; i < partiler.length; i++) { 
       sonuc += partiler[i].id + ": " + mvlistesi[i] + "<br>";
     }
+      sonuc = sonuc.split("<br>").filter(function(e) { return e != "" }).sort(function(a,b) { return b.split(":")[1] - a.split(":")[1] }).join("<br>");
       document.getElementById("sonuclar").innerHTML = sonuc;
     // Milletvekili listesini ekranda göster
-    for (var i = 0; i < partiler.length; i++) { 
+    //for (var i = 0; i < partiler.length; i++) { 
       //document.write (partiler[i].id + ": " + mvlistesi[i] + "<br>");
       // Partinin id'sini ve milletvekili sayısını yaz
       //alert(partiler[i].id + ": " + mvlistesi[i]);
@@ -204,7 +206,7 @@
       //var div = document.createElement("div");
       //div.innerHTML = partiler[i].id + ": " + mvlistesi[i];
       //document.getElementById("cevaplar").appendChild(div);
-    }
+    //}
   }
  
 </script>
