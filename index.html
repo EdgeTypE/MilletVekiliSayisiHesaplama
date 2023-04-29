@@ -161,7 +161,8 @@
       // Giriş alanının değerini sayıya dönüştür
       var oy = parseFloat (partiler[i].value);
       // Seçim barajını kontrol et
-      if (oy < 7) {
+      //if (oy < 7) {
+      if (oy < 7 && !partiler[i].name.includes("İYİ") && !partiler[i].name.includes("Milliyetçi") && !partiler[i].name.includes("Büyük") && !partiler[i].name.includes("Refah") && !partiler[i].name.includes("İşçi")) {
         // Parti barajı geçemediyse oy oranını 0 yap
         partiler[i].value = 0;
         oy = 0;
