@@ -24,13 +24,14 @@ select {
 
 label {
   display: block;
-  margin-bottom: 50px;
+  margin-bottom: 5px;
 }
 
 
-label[for="parti1"] {
+label[for="Milletittifaki"] {
   font-weight: bold;
   color: blue;
+  margin-bottom: 5px;
 }
 
 img {
@@ -103,7 +104,56 @@ div.content {
   }
 }
 
+.partimilletemek {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 5px;
+}
+
+.milletemek {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 5px;
+}
+
+.ittifakcumhur {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 5px;
+}
+
 .grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 5px;
+}
+
+.particumhur {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 5px;
+}
+
+.ittifakata {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 5px;
+}
+
+.partiata {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, auto);
+  gap: 5px;
+}
+
+.ittifaksizparti {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(4, auto);
@@ -113,6 +163,6 @@ div.content {
 .grid-item {
   background-color: #f5f5f5;
   border: 1px solid #ddd;
-  padding: 20px;
+  padding: 10px;
 }
 
