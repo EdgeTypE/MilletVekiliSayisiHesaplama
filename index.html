@@ -3,11 +3,18 @@
         <aside>Bu uygulama D'Hondt sistemine göre dilediğiniz şehirdeki milletvekili sayısını hesaplar. Uygulamanın geliştirme süreci halen devam etmektedir. Verilere kesin gözüyle bakmayınız.</aside>
       </div>
 </nav>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <div class="row">
       <div class="col text-end">
         <ul class="navbar-nav">
+          <div class="sidebar">
+            <a class="active" href="#home">Home</a>
+            <label for="vehicle" id="sonuclar"></label><br/> 
+          
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+          </div>
           <li class="nav-item">
             <a class="nav-link" href="#">Link 1</a>
           </li>
@@ -18,7 +25,7 @@
       </div>
     </div>
   </div>
-</nav>
+</nav> -->
 
 <div class="container">
   <div class="row">
@@ -29,9 +36,11 @@
     </div>
   </div>
 </div>
+<br>
 <div class="container">
   <form id="myForm" onsubmit="event.preventDefault(); calculate();">
     <div class="form-group row">
+      
       <label for="iller" class="col-sm-2 col-form-label">İl seçiniz:</label>
       <div class="col-sm-10">
         <select id="iller" required class="form-control">
@@ -41,6 +50,7 @@
           <option value="8">Ankara</option><br><br>
           <!-- Diğer iller için de aynı şekilde devam edin -->
         </select>
+        <br>
       </div>
     </div>
     <div class="milletemek">
@@ -58,7 +68,7 @@
       <input type="number" id="Türkiye İşçi Partisi" name="Türkiye İşçi Partisi" size="300" placeholder="Değer giriniz" class="form-control"></div>
     </div>
     <div class="ittifakcumhur"> 
-      <div class="grid-item"><label for="Emekittifaki">Cumhur İttifakı:</label></div>
+      <div class="grid-item"><label for="Cumhurittifaki">Cumhur İttifakı:</label></div>
     </div>
     <div class="particumhur"> 
       <div class="grid-item"><label for="AK Parti"><img src="res\akp.png" alt="ikon" width="32" height="32" align="middle"> AK Parti:</label>
@@ -86,30 +96,30 @@
       <input type="number" id="Vatan Partisi" name="Vatan Partisi" size="300" placeholder="Değer giriniz" class="form-control"></div>   
     </div>
     <div class="ittifaksizparti"> 
-      <div class="grid-itempartiz"><label for="Genç Parti"><img src="res\gp.jpeg" alt="ikon" width="32" height="32" align="middle"> Genç Parti:</label>
+      <div class="grid-itempartiz"><label for="Genç Parti"><img src="res\gp.jpeg" alt="ikon" width="16" height="16" align="middle"> Genç Parti:</label>
       <input type="number" id="Genç Parti" name="Genç Parti" size="300" placeholder="Değer giriniz" class="form-control"></div>
-      <div class="grid-itempartiz"><label for="Adalet Birlik Partisi"><img src="res\abp.png" alt="ikon" width="32" height="32" align="middle"> Adalet Birlik Partisi:</label>
+      <div class="grid-itempartiz"><label for="Adalet Birlik Partisi"><img src="res\abp.png" alt="ikon" width="16" height="16" align="middle"> Adalet Birlik Partisi:</label>
       <input type="number" id="Adalet Birlik Partisi" name="Adalet Birlik Partisi" size="300" placeholder="Değer giriniz" class="form-control"></div>
-      <div class="grid-itempartiz"><label for="Anavatan Partisi"><img src="res\anap.png" alt="ikon" width="32" height="32" align="middle"> Anavatan Partisi:</label>
+      <div class="grid-itempartiz"><label for="Anavatan Partisi"><img src="res\anap.png" alt="ikon" width="16" height="16" align="middle"> Anavatan Partisi:</label>
       <input type="number" id="Anavatan Partisi" name="Anavatan Partisi" size="300" placeholder="Değer giriniz" class="form-control"></div>
-      <div class="grid-itempartiz"><label for="Yenilik Partisi"><img src="res\yp.png" alt="ikon" width="32" height="32" align="middle"> Yenilik Partisi:</label>
+      <div class="grid-itempartiz"><label for="Yenilik Partisi"><img src="res\yp.png" alt="ikon" width="16" height="16" align="middle"> Yenilik Partisi:</label>
       <input type="number" id="Yenilik Partisi" name="Yenilik Partisi" size="300" placeholder="Değer giriniz" class="form-control"></div>
-      <div class="grid-itempartiz"><label for="Halkın Kurtuluş Partisi"><img src="res\hkp.jpg" alt="ikon" width="32" height="32" align="middle"> Halkın Kurtuluş Partisi:</label>
+      <div class="grid-itempartiz"><label for="Halkın Kurtuluş Partisi"><img src="res\hkp.jpg" alt="ikon" width="16" height="16" align="middle"> Halkın Kurtuluş Partisi:</label>
       <input type="number" id="Halkın Kurtuluş Partisi" name="Halkın Kurtuluş Partisi" size="300" placeholder="Değer giriniz" class="form-control"></div>
 
-      <div class="grid-itempartiz"><label for="Milli Yol Partisi"><img src="res\myp.jpg" alt="ikon" width="32" height="32" align="middle"> Milli Yol Partisi:</label>
+      <div class="grid-itempartiz"><label for="Milli Yol Partisi"><img src="res\myp.jpg" alt="ikon" width="16" height="16" align="middle"> Milli Yol Partisi:</label>
       <input type="number" id="Milli Yol Partisi" name="Milli Yol Partisi" size="300" placeholder="Değer giriniz" class="form-control"></div>
-      <div class="grid-itempartiz"><label for="Güç Birliği Partisi"><img src="res\gbp.png" alt="ikon" width="32" height="32" align="middle"> Güç Birliği Partisi:</label>
+      <div class="grid-itempartiz"><label for="Güç Birliği Partisi"><img src="res\gbp.png" alt="ikon" width="16" height="16" align="middle"> Güç Birliği Partisi:</label>
       <input type="number" id="Güç Birliği Partisi" name="Güç Birliği Partisi" size="300" placeholder="Değer giriniz" class="form-control"></div>
-      <div class="grid-itempartiz"><label for="Millet Partisi"><img src="res\mip.jpeg" alt="ikon" width="32" height="32" align="middle"> Millet Partisi:</label>
+      <div class="grid-itempartiz"><label for="Millet Partisi"><img src="res\mip.jpeg" alt="ikon" width="16" height="16" align="middle"> Millet Partisi:</label>
       <input type="number" id="Millet Partisi" name="Millet Partisi" size="300" placeholder="Değer giriniz" class="form-control"></div>
-      <div class="grid-itempartiz"><label for="Hak ve Özgürlükler Partisi"><img src="res\hop.jpg" alt="ikon" width="32" height="32" align="middle"> Hak ve Özgürlükler Partisi:</label>
+      <div class="grid-itempartiz"><label for="Hak ve Özgürlükler Partisi"><img src="res\hop.jpg" alt="ikon" width="16" height="16" align="middle"> Hak ve Özgürlükler Partisi:</label>
       <input type="number" id="Hak ve Özgürlükler Partisi" name="Hak ve Özgürlükler Partisi" size="300" placeholder="Değer giriniz" class="form-control"></div>
-      <div class="grid-itempartiz"><label for="Türkiye Komünist Partisi"><img src="res\tkp.jpg" alt="ikon" width="32" height="32" align="middle"> Türkiye Komünist Partisi:</label>
+      <div class="grid-itempartiz"><label for="Türkiye Komünist Partisi"><img src="res\tkp.jpg" alt="ikon" width="16" height="16" align="middle"> Türkiye Komünist Partisi:</label>
       <input type="number" id="Türkiye Komünist Partisi" name="Türkiye Komünist Partisi" size="300" placeholder="Değer giriniz" class="form-control"></div>
-      <div class="grid-itempartiz"><label for="Türkiye Komünist Hareketi"><img src="res\tkh.png" alt="ikon" width="32" height="32" align="middle"> Türkiye Komünist Hareketi:</label>
+      <div class="grid-itempartiz"><label for="Türkiye Komünist Hareketi"><img src="res\tkh.png" alt="ikon" width="16" height="16" align="middle"> Türkiye Komünist Hareketi:</label>
       <input type="number" id="Türkiye Komünist Hareketi" name="Türkiye Komünist Hareketi" size="300" placeholder="Değer giriniz" class="form-control"></div>
-      <div class="grid-itempartiz"><label for="Sol Parti"><img src="res\sp.png" alt="ikon" width="32" height="32" align="middle"> Sol Parti:</label>
+      <div class="grid-itempartiz"><label for="Sol Parti"><img src="res\sp.png" alt="ikon" width="16" height="16" align="middle"> Sol Parti:</label>
       <input type="number" id="Sol Parti" name="Sol Parti" size="300" placeholder="Değer giriniz" align="bottom" class="form-control"></div>
 
     </div> 
@@ -126,13 +136,7 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
-<div class="sidebar">
-  <a class="active" href="#home">Home</a>
-  <label for="vehicle" id="sonuclar"></label><br/> 
 
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
-</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script>
   document.getElementById("myForm").addEventListener("submit", function(event){
