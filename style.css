@@ -3,7 +3,13 @@ label {
   margin-bottom: 5px;
 }
 
-
+.ortala {
+  text-align: center;
+  border: 2px solid black; /* Kutunun kenarlık kalınlığını ve rengini belirle */
+  padding: 1px; /* Kutunun içindeki yazı ile kenarlık arasındaki boşluğu belirle */
+  margin: 2px; /* Kutunun dışındaki diğer öğeler ile arasındaki boşluğu belirle */
+  visibility: hidden;
+}
 
 #hesaplabutonu {
   background-color: #4CAF50; /* Green */
